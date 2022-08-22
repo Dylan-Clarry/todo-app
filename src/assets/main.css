@@ -1,0 +1,10 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Form */ 
+.form-input {
+   padding: 5em; 
+}
