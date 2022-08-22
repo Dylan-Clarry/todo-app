@@ -8,7 +8,6 @@ const Form = ({inputText, setInputText, todoList, setTodoList}) => {
             ...todoList, {"id": 5, "text": inputText}
         ]);
         setInputText('');
-        console.log("todolist:", todoList);
     };
 
     return(
