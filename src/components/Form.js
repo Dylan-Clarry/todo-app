@@ -1,14 +1,28 @@
 import React from 'react';
 
-const Form = () => {
+const Form = ({inputText, setInputText, todoList, setTodoList}) => {
+
+    const submitTodoHandler = e => {
+        e.preventDefault();   
+        setTodoList([
+            ...todoList, {"id": 5, "text": inputText}
+        ]);
+        setInputText('');
+        console.log("todolist:", todoList);
+    };
+
     return(
         <form>
             <input
+                value={inputText}
                 type="text"
                 className="form-input"
+                onChange={e => setInputText(e.target.value)}
             />
             <button
                 type="submit"
+                className="form-btn"
+                onClick={submitTodoHandler}
             >+</button>
         </form>
     );

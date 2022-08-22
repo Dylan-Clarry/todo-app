@@ -2,6 +2,11 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background: linear-gradient(60deg, #59cbe8, #e93cac);
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* Todolist */
@@ -13,6 +18,10 @@ html, body {
 }
 
 /* Form */ 
-.form-input {
-   padding: 5em; 
+.form-input, .form-btn {
+   padding: 1em; 
+}
+
+.form-btn {
+    margin-left: 0.5em;
 }
