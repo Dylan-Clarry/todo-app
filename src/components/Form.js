@@ -9,8 +9,7 @@ const Form = () => {
             />
             <button
                 type="submit"
-            >
-            +</button>
+            >+</button>
         </form>
     );
 };
