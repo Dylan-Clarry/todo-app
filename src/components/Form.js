@@ -1,17 +1,22 @@
 import React from 'react';
 
-const Form = ({inputText, setInputText, todoList, setTodoList}) => {
+const Form = ({inputText, setInputText, setStatus, todoList, setTodoList, trackIdMax, setTrackIdMax}) => {
 
     const submitTodoHandler = e => {
         e.preventDefault();   
         setTodoList([
-            ...todoList, {"id": 5, "text": inputText}
+            ...todoList, {"id": trackIdMax, "text": inputText, "completed": false}
         ]);
         setInputText('');
+        setTrackIdMax(curr => curr + 1);
     };
 
+    const statusHandler = e => {
+        setStatus(e.target.value);
+    }
+
     return(
-        <form>
+        <form className="todo-form">
             <input
                 value={inputText}
                 type="text"
@@ -23,6 +28,13 @@ const Form = ({inputText, setInputText, todoList, setTodoList}) => {
                 className="form-btn"
                 onClick={submitTodoHandler}
             >+</button>
+            <div className="status-select">
+                <select onChange={statusHandler} name="todoList" className="filter-todolist">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
         </form>
     );
 };
