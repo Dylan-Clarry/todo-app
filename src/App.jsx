@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './assets/main.scss';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
@@ -12,13 +12,19 @@ const App = () => {
     const [filteredTodoList, setFilteredTodoList] = useState([]);
 
     // effects
+    // run once on app start
+    useEffect(() => {
+        getStoredTodoList();
+    }, []);
+
     useEffect(() => {
         filterHandler();
+        storeTodoList();
     }, [todoList, status]);
 
     // functions
     const filterHandler = () => {
-        switch(status) {
+        switch (status) {
             case 'all':
                 setFilteredTodoList(todoList);
                 break;
@@ -31,7 +37,22 @@ const App = () => {
         }
     }
 
-    return(
+    // local storage
+    const storeTodoList = () => {
+        console.log("at least I'm trying")
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+    };
+
+    const getStoredTodoList = () => {
+        if (localStorage.getItem('todoList') === null) {
+            localStorage.setItem('todoList', JSON.stringify([]));
+        } else {
+            let getTodoList = JSON.parse(localStorage.getItem('todoList'));
+            setTodoList(getTodoList);
+        }
+    };
+
+    return (
         <h1>
             <div className="todolist-container">
                 Todo List
