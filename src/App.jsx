@@ -39,7 +39,6 @@ const App = () => {
 
     // local storage
     const storeTodoList = () => {
-        console.log("at least I'm trying")
         localStorage.setItem('todoList', JSON.stringify(todoList));
     };
 
@@ -53,25 +52,25 @@ const App = () => {
     };
 
     return (
-        <h1>
-            <div className="todolist-container">
-                Todo List
-                <Form
-                    inputText={inputText}
-                    setInputText={setInputText}
-                    setStatus={setStatus}
-                    todoList={todoList}
-                    setTodoList={setTodoList}
-                    trackIdMax={trackIdMax}
-                    setTrackIdMax={setTrackIdMax}
-                />
-                <TodoList
-                    todoList={todoList}
-                    setTodoList={setTodoList}
-                    filteredTodoList={filteredTodoList}
-                />
-            </div>
-        </h1>
+        <div className="App">
+            <header>
+                <h1>Todo List</h1>
+            </header>
+            <Form
+                inputText={inputText}
+                setInputText={setInputText}
+                setStatus={setStatus}
+                todoList={todoList}
+                setTodoList={setTodoList}
+                trackIdMax={trackIdMax}
+                setTrackIdMax={setTrackIdMax}
+            />
+            <TodoList
+                todoList={todoList}
+                setTodoList={setTodoList}
+                filteredTodoList={filteredTodoList}
+            />
+        </div>
     );
 };
 

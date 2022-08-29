@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Form = ({inputText, setInputText, setStatus, todoList, setTodoList, trackIdMax, setTrackIdMax}) => {
-
+const Form = ({ inputText, setInputText, setStatus, todoList, setTodoList, trackIdMax, setTrackIdMax }) => {
     const submitTodoHandler = e => {
-        e.preventDefault();   
+        e.preventDefault();
         setTodoList([
-            ...todoList, {"id": trackIdMax, "text": inputText, "completed": false}
+            ...todoList, { "id": trackIdMax, "text": inputText, "completed": false }
         ]);
         setInputText('');
         setTrackIdMax(curr => curr + 1);
@@ -15,8 +14,8 @@ const Form = ({inputText, setInputText, setStatus, todoList, setTodoList, trackI
         setStatus(e.target.value);
     }
 
-    return(
-        <form className="todo-form">
+    return (
+        <form className="Form">
             <input
                 value={inputText}
                 type="text"
