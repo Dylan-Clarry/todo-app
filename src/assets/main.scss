@@ -1,19 +1,19 @@
 :root {
     --font: 'Open Sans', sans-serif;
+    --color: white;
     font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
     background: linear-gradient(60deg, #59cbe8, #e93cac);
     font-family: var(--font);
-}
-
-body {
-    display: flex;
-    justify-content: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,6 +27,49 @@ p {
 
 ul {
     list-style-type: none;
+}
+
+/* Navbar */
+nav {
+    background-color: #333;
+    color: var(--color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: .25rem;
+    }
+
+    li {
+        border-radius: 2px;
+    }
+
+    li:hover {
+        background-color: #777;
+    }
+
+    li.active {
+        background-color: #777;
+    }
+}
+
+.logo-link {
+    font-size: 2rem;
 }
 
 /* Todolist */

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import './assets/main.scss';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
+import Navbar from './components/Navbar';
 
 const App = () => {
     const [trackIdMax, setTrackIdMax] = useState(0);
@@ -52,9 +53,9 @@ const App = () => {
     };
 
     return (
-        <div className="App">
+        <div>
             <header>
-                <h1>Todo List</h1>
+                <Navbar />
             </header>
             <Form
                 inputText={inputText}
