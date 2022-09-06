@@ -1,0 +1,14 @@
+/* Todo Item */
+.Todo {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    flex: 1;
+    margin-right: 0.25rem;
+  }
+
+  button {
+    margin: 0 0.25rem;
+  }
+}
