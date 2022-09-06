@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBug, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import ThemeContext from "../../context/ThemeContext";
+import ToggleSwitch from "../ui/ToggleSwitch";
 import "./Navbar.style.scss";
 
 const Navbar = () => {
@@ -15,8 +16,8 @@ const Navbar = () => {
     return (
         <header>
             <nav className="nav">
-                <a href="#" className="nav__link">
-                    <FontAwesomeIcon className="logo" alt="logo" icon={faBug} />[{theme}]
+                <a href="#" className="nav__logo">
+                    <FontAwesomeIcon className="logo" alt="logo" icon={faBug} />
                 </a>
                 <ul className="nav__links">
                     <li className="nav__item">
@@ -31,7 +32,7 @@ const Navbar = () => {
                         </a>
                     </li>
                 </ul>
-                <input type="checkbox" id="check" className="toggle-switch" />
+                <ToggleSwitch />
                 <a className="account-icon" href="#">
                     <FontAwesomeIcon
                         className="user-profile"
