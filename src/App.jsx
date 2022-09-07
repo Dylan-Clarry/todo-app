@@ -1,80 +1,25 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import "./assets/styles/global.scss";
-import Form from "./components/Form";
-import TodoList from "./components/TodoList";
+import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import ThemeContext from "./context/ThemeContext";
+import Home from "./pages/Home";
+import Settings from "./pages/Settings";
+import Account from "./pages/Account";
+import Login from "./pages/Login";
 
 const App = () => {
-    const [trackIdMax, setTrackIdMax] = useState(0);
-    const [inputText, setInputText] = useState("");
-    const [status, setStatus] = useState("all");
-    const [todoList, setTodoList] = useState([]);
-    const [filteredTodoList, setFilteredTodoList] = useState([]);
     const [theme, setTheme] = useState("light");
-
-    // effects
-    // run once on app start
-    useEffect(() => {
-        getStoredTodoList();
-    }, []);
-
-    useEffect(() => {
-        filterHandler();
-        storeTodoList();
-    }, [todoList, status]);
-
-    // functions
-    const filterHandler = () => {
-        switch (status) {
-            case "all":
-                setFilteredTodoList(todoList);
-                break;
-            case "completed":
-                setFilteredTodoList(todoList.filter((todo) => todo.completed));
-                break;
-            case "uncompleted":
-                setFilteredTodoList(todoList.filter((todo) => !todo.completed));
-                break;
-        }
-    };
-
-    // local storage
-    const storeTodoList = () => {
-        localStorage.setItem("todoList", JSON.stringify(todoList));
-    };
-
-    const getStoredTodoList = () => {
-        if (localStorage.getItem("todoList") === null) {
-            localStorage.setItem("todoList", JSON.stringify([]));
-        } else {
-            let getTodoList = JSON.parse(localStorage.getItem("todoList"));
-            setTodoList(getTodoList);
-        }
-    };
-
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
-            <div>
-                <header>
-                    <Navbar />
-                </header>
-                <Form
-                    inputText={inputText}
-                    setInputText={setInputText}
-                    setStatus={setStatus}
-                    todoList={todoList}
-                    setTodoList={setTodoList}
-                    trackIdMax={trackIdMax}
-                    setTrackIdMax={setTrackIdMax}
-                />
-                <TodoList
-                    todoList={todoList}
-                    setTodoList={setTodoList}
-                    filteredTodoList={filteredTodoList}
-                />
-            </div>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/account" element={<Account />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
         </ThemeContext.Provider>
     );
 };

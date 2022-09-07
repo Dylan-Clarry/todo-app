@@ -1,10 +1,11 @@
 import React from "react";
+import "./Navbar.style.scss";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBug, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import ThemeContext from "../../context/ThemeContext";
 import ToggleSwitch from "../ui/ToggleSwitch";
-import "./Navbar.style.scss";
 
 const Navbar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
@@ -16,30 +17,27 @@ const Navbar = () => {
     return (
         <header>
             <nav className="nav">
-                <a href="#" className="nav__logo">
+                <Link to="/" className="nav__logo">
                     <FontAwesomeIcon className="logo" alt="logo" icon={faBug} />
-                </a>
+                </Link>
                 <ul className="nav__links">
                     <li className="nav__item">
-                        <a href="#">Projects</a>
+                        <Link to="/">Projects</Link>
                     </li>
                     <li className="nav__item">
-                        <a href="#">Settings</a>
-                    </li>
-                    <li className="nav__item">
-                        <a onClick={handleSetTheme} href="#">
-                            Item #3
-                        </a>
+                        <Link to="Settings">Settings</Link>
                     </li>
                 </ul>
-                <ToggleSwitch />
-                <a className="account-icon" href="#">
+                <div onClick={handleSetTheme}>
+                    <ToggleSwitch />
+                </div>
+                <Link className="account-icon" to="/Account">
                     <FontAwesomeIcon
                         className="user-profile"
                         alt="user-profile"
                         icon={faUserCircle}
                     />
-                </a>
+                </Link>
             </nav>
         </header>
     );
