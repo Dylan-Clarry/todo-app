@@ -1,11 +1,23 @@
 import React from "react";
 import "./Navbar.style.scss";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useMatch, useResolvedPath } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBug, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import ThemeContext from "../../context/ThemeContext";
 import ToggleSwitch from "../ui/ToggleSwitch";
+
+const CustomLink = ({ to, children, ...props }) => {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </li>
+    );
+};
 
 const Navbar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
