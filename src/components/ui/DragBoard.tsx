@@ -10,7 +10,7 @@ const DragContainer = (props: any) => {
   };
 
   return (
-    <div className="dragboard__container" onDragOver={handleDragOver(this)}>
+    <div className="dragboard__container" onDragOver={handleDragOver}>
       {props.children}
     </div>
   );
