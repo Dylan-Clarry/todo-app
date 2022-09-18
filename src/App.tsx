@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import { ThemeContextProvider } from "./context/ThemeContext";
-//import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
@@ -20,7 +20,7 @@ const App = () => {
     <ThemeContextProvider>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Settings />} />
+        <Route path="/" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/account" element={<Account />} />
         <Route path="/login" element={<Login />} />
