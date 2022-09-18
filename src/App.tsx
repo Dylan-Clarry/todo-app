@@ -13,7 +13,7 @@ const App = () => {
   //const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
-    console.log("wow!");
+    console.log("asdf");
   });
 
   return (

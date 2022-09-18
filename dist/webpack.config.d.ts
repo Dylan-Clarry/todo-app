@@ -4,17 +4,11 @@ export const mode: string;
 export namespace output {
     const path: any;
     const filename: string;
+    const publicPath: string;
 }
 export const target: string;
 export namespace devServer {
-    export const port: string;
-    export namespace _static {
-        const directory: any;
-    }
-    export { _static as static };
-    export const open: boolean;
-    export const hot: boolean;
-    export const liveReload: boolean;
+    const historyApiFallback: boolean;
 }
 export namespace resolve {
     const extensions: string[];

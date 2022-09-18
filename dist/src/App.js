@@ -9,7 +9,7 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 const App = () => {
     useEffect(() => {
-        console.log("wow!");
+        console.log("asdf");
     });
     return (React.createElement(ThemeContextProvider, null,
         React.createElement(Navbar, null),
