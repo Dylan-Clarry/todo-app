@@ -1,0 +1,29 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 91vh;
+
+  &__container {
+    background-color: var(--bg-dark);
+    color: var(--font-color);
+    border-radius: 3px;
+    width: 50%;
+    height: 30%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    input {
+      background-color: var(--bg-dark);
+      border-style: solid;
+      border-radius: 3px;
+      border-color: var(--green);
+      color: var(--font-color);
+      padding: 0.5rem;
+    }
+  }
+}
