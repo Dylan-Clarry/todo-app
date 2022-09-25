@@ -29,8 +29,31 @@
       padding: 0.5rem;
     }
 
+    input:focus {
+      outline: 2px solid var(--sapphire);
+      border-color: var(--sapphire);
+      box-shadow: 0 0 0 2px;
+    }
+
     button {
       padding: 0.25rem;
     }
   }
+
+  &__btn {
+    background-color: var(--green);
+    color: var(--font-color-dark);
+    border-style: none;
+    border-radius: 3px;
+  }
+}
+
+.eye-toggle-btn {
+  border: none;
+  background-color: transparent;
+  margin-left: -1.5rem;
+}
+
+.eye-toggle {
+  color: var(--green);
 }
