@@ -7,7 +7,7 @@
   &__container {
     background-color: var(--bg-dark);
     color: var(--font-color);
-    border-radius: 3px;
+    border-radius: var(--border-radius);
     width: 50%;
     height: 30%;
     display: flex;
@@ -22,7 +22,7 @@
     input {
       background-color: var(--bg-dark);
       border-style: solid;
-      border-radius: 3px;
+      border-radius: var(--border-radius);
       border-color: var(--green);
       color: var(--font-color);
       margin-bottom: 1rem;
@@ -44,7 +44,7 @@
     background-color: var(--green);
     color: var(--font-color-dark);
     border-style: none;
-    border-radius: 3px;
+    border-radius: var(--border-radius);
   }
 
   &__btn:hover {

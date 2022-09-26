@@ -20,8 +20,6 @@ const CustomLink = ({ to, children, ...props }) => {
 };
 
 const Navbar = () => {
-  //const { theme, setTheme } = useContext(ThemeContext);
-
   const handleSetTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };

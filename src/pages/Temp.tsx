@@ -7,9 +7,9 @@ import Navbar from "../components/layout/Navbar";
 import { ThemeContextProvider } from "../context/ThemeContext";
 
 const Temp = () => {
-  const [trackIdMax, setTrackIdMax] = useState(0);
-  const [inputText, setInputText] = useState("");
-  const [status, setStatus] = useState("all");
+  const [trackIdMax, setTrackIdMax] = useState<number>(0);
+  const [inputText, setInputText] = useState<string>("");
+  const [status, setStatus] = useState<string>("all");
   const [todoList, setTodoList] = useState<any[]>([]);
   const [filteredTodoList, setFilteredTodoList] = useState<any[]>([]);
   //const [theme, setTheme] = useState("light");

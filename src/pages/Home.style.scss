@@ -1,0 +1,36 @@
+.home {
+  color: var(--font-color);
+
+  &__content {
+    height: 93vh;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+  }
+
+  &__board {
+    background-color: var(--bg-dark);
+    border-radius: var(--border-radius);
+    margin: 2rem;
+    padding: 2rem;
+    color: var(--font-color);
+    opacity: 0.8;
+  }
+
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      background-color: var(--bg-lt-dark);
+      color: var(--font-color);
+      border-style: none;
+      border-radius: var(--border-radius);
+      padding: 0.25rem 0.75rem;
+      opacity: 1;
+    }
+
+    button:active {
+      background-color: var(--bg-dark);
+    }
+  }
+}

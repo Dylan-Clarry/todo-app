@@ -2,7 +2,6 @@ import React from "react";
 import "./assets/styles/global.scss";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
 import { ThemeContextProvider } from "./context/ThemeContext";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
@@ -15,16 +14,20 @@ const App = () => {
   useEffect(() => {
     console.log("asdf");
   });
-    //asd;flasdf
+  //asd;flasdf
   return (
     <ThemeContextProvider>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <div id="main-container">
+        <div id="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </div>
     </ThemeContextProvider>
   );
 };
