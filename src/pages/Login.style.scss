@@ -46,6 +46,10 @@
     border-style: none;
     border-radius: 3px;
   }
+
+  &__btn:hover {
+    cursor: pointer;
+  }
 }
 
 .eye-toggle-btn {

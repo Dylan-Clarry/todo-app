@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./Login.style.scss";
@@ -8,6 +9,7 @@ const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
   const [usernameInput, setUsernameInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleUsernameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsernameInput(e.target.value);
@@ -21,6 +23,11 @@ const Login = () => {
     e.preventDefault();
     setUsernameInput("password");
     setPasswordInput("password");
+  };
+
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    navigate("/");
   };
 
   const handleTogglePassword = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,7 +59,9 @@ const Login = () => {
               />
             </button>
           </div>
-          <button className="login__btn">Login</button>
+          <button className="login__btn" onClick={handleLogin}>
+            Login
+          </button>
           <a className="demo-login" onClick={handleDemoLogin}>
             <u>Demo Login</u>
           </a>
