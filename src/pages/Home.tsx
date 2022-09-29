@@ -3,8 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
+import List from "../components/List";
 import "../components/layout/Navbar.style.scss";
 import "./Home.style.scss";
+
+const testData = [
+  {
+    id: 1,
+    title: "title 1",
+    text: "Test text 1",
+  },
+  {
+    id: 2,
+    title: "title 2",
+    text: "Test text 2",
+  },
+  {
+    id: 3,
+    title: "This iss a title yaya",
+    text: "Texas 3",
+  },
+];
 
 const Home: FC = () => {
   return (
@@ -19,8 +38,7 @@ const Home: FC = () => {
               <FontAwesomeIcon icon={faGear} />
             </button>
           </div>
-
-          <div className="todolist">Todolist</div>
+          <List entries={testData} />
         </div>
       </div>
     </div>
