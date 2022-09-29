@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import "./ListItem.style.scss";
 
 export interface IListItem {
   title: string;

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../components/layout/Navbar";
@@ -7,7 +8,13 @@ import List from "../components/List";
 import "../components/layout/Navbar.style.scss";
 import "./Home.style.scss";
 
-const testData = [
+export interface IBugData {
+  id: number;
+  title: string;
+  text: string;
+}
+
+const testData: IBugData[] = [
   {
     id: 1,
     title: "title 1",
@@ -26,6 +33,10 @@ const testData = [
 ];
 
 const Home: FC = () => {
+  //const [status, setStatus] = useState<string>("all");
+  const [entries, setEntries] = useState<IBugData[]>(testData);
+  //const [filteredTodoList, setFilteredTodoList] = useState<any[]>([]);
+
   return (
     <div className="home">
       <Navbar />
@@ -38,7 +49,7 @@ const Home: FC = () => {
               <FontAwesomeIcon icon={faGear} />
             </button>
           </div>
-          <List entries={testData} />
+          <List entries={entries} setEntries={setEntries} />
         </div>
       </div>
     </div>
