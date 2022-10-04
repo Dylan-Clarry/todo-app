@@ -8,16 +8,33 @@ import "./List.style.scss";
 
 interface IListProps {
   entries: IListItem[];
-  setEntries: Dispatch<SetStateAction<IBugData>>;
+  setEntries: Dispatch<SetStateAction<IBugData[]>>;
+  setStatus: Dispatch<SetStateAction<string>>;
+  trackIdMax: number;
+  setTrackIdMax: Dispatch<SetStateAction<number>>;
 }
 
-const List: FC<IListProps> = ({ entries, setEntries }: IListProps) => {
+const List: FC<IListProps> = ({
+  entries,
+  setEntries,
+  setStatus,
+  trackIdMax,
+  setTrackIdMax,
+}: IListProps) => {
   //const [trackIdMax, setTrackIdMax] = useState<number>(0);
   const [inputText, setInputText] = useState<string>("");
 
   return (
     <>
-      <Form inputText={inputText} setInputText={setInputText} />
+      <Form
+        inputText={inputText}
+        setInputText={setInputText}
+        setStatus={setStatus}
+        entries={entries}
+        setEntries={setEntries}
+        trackIdMax={trackIdMax}
+        setTrackIdMax={setTrackIdMax}
+      />
       <div className="list">
         {entries.map((entry) => {
           return (

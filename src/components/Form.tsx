@@ -4,15 +4,15 @@ const Form = ({
   inputText,
   setInputText,
   setStatus,
-  todoList,
-  setTodoList,
+  entries,
+  setEntries,
   trackIdMax,
   setTrackIdMax,
 }) => {
   const submitTodoHandler = (e: React.FormEvent<HTMLButtonElement>): void => {
     e.preventDefault();
-    setTodoList([
-      ...todoList,
+    setEntries([
+      ...entries,
       { id: trackIdMax, text: inputText, completed: false },
     ]);
     setInputText("");

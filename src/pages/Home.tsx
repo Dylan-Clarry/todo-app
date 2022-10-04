@@ -33,9 +33,12 @@ const testData: IBugData[] = [
 ];
 
 const Home: FC = () => {
-  //const [status, setStatus] = useState<string>("all");
+  const [status, setStatus] = useState<string>("all");
   const [entries, setEntries] = useState<IBugData[]>(testData);
+  const [trackIdMax, setTrackIdMax] = useState<number>(0);
   //const [filteredTodoList, setFilteredTodoList] = useState<any[]>([]);
+
+  console.log(status);
 
   return (
     <div className="home">
@@ -49,7 +52,13 @@ const Home: FC = () => {
               <FontAwesomeIcon icon={faGear} />
             </button>
           </div>
-          <List entries={entries} setEntries={setEntries} />
+          <List
+            entries={entries}
+            setEntries={setEntries}
+            setStatus={setStatus}
+            trackIdMax={trackIdMax}
+            setTrackIdMax={setTrackIdMax}
+          />
         </div>
       </div>
     </div>
