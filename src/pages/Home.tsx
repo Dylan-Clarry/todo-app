@@ -12,6 +12,7 @@ export interface IBugData {
   id: number;
   title: string;
   text: string;
+  closed: boolean;
 }
 
 const testData: IBugData[] = [
@@ -19,16 +20,19 @@ const testData: IBugData[] = [
     id: 1,
     title: "title 1",
     text: "Test text 1",
+    closed: false,
   },
   {
     id: 2,
     title: "title 2",
     text: "Test text 2",
+    closed: false,
   },
   {
     id: 3,
     title: "This iss a title yaya",
     text: "Texas 3",
+    closed: false,
   },
 ];
 

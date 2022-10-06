@@ -3,4 +3,24 @@
   border-radius: var(--border-radius);
   padding: 1rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__buttons {
+    button {
+      margin-left: 1rem;
+      padding: 0.5rem;
+      background-color: var(--green);
+      border-style: none;
+      border-radius: var(--border-radius);
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    button:active {
+      opacity: 50%;
+    }
+  }
 }

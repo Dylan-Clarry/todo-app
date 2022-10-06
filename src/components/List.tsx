@@ -2,12 +2,11 @@ import React, { FC, SetStateAction, Dispatch } from "react";
 import { useState } from "react";
 import ListItem from "./ListItem";
 import Form from "./Form";
-import { IListItem } from "./ListItem";
 import { IBugData } from "../pages/Home";
 import "./List.style.scss";
 
 interface IListProps {
-  entries: IListItem[];
+  entries: IBugData[];
   setEntries: Dispatch<SetStateAction<IBugData[]>>;
   setStatus: Dispatch<SetStateAction<string>>;
   trackIdMax: number;
@@ -28,6 +27,7 @@ const List: FC<IListProps> = ({
     id: 69,
     title: "Test",
     text: "This is a test, and you failed the test!",
+    closed: false,
   };
 
   const handleNewEntry = () => {
@@ -47,14 +47,7 @@ const List: FC<IListProps> = ({
       />
       <div className="list">
         {entries.map((entry) => {
-          return (
-            <ListItem
-              id={entry.id}
-              title={entry.title}
-              text={entry.text}
-              key={entry.id}
-            />
-          );
+          return <ListItem entry={entry} key={entry.id} />;
         })}
         <div onClick={handleNewEntry} className="listitem create-listitem">
           <h3>
