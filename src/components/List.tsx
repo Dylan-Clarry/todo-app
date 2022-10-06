@@ -24,6 +24,16 @@ const List: FC<IListProps> = ({
   //const [trackIdMax, setTrackIdMax] = useState<number>(0);
   const [inputText, setInputText] = useState<string>("");
 
+  const testEntry: IBugData = {
+    id: 69,
+    title: "Test",
+    text: "This is a test, and you failed the test!",
+  };
+
+  const handleNewEntry = () => {
+    setEntries([...entries, testEntry]);
+  };
+
   return (
     <>
       <Form
@@ -46,7 +56,7 @@ const List: FC<IListProps> = ({
             />
           );
         })}
-        <div className="listitem create-listitem">
+        <div onClick={handleNewEntry} className="listitem create-listitem">
           <h3>
             <b>+</b> Create new issue
           </h3>
