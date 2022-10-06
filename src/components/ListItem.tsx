@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, SetStateAction, Dispatch } from "react";
 import "./ListItem.style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX, faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -9,10 +9,22 @@ export interface IListItem {
   key: number;
 }
 
-const ListItem: FC<IListItem> = ({ entry }: IListItem) => {
+interface IListItemProp {
+  entry: IBugData;
+  entries: IBugData[];
+  setEntries: Dispatch<SetStateAction<IBugData[]>>;
+}
+
+const ListItem: FC<IListItemProp> = ({
+  entry,
+  entries,
+  setEntries,
+}: IListItemProp) => {
   const handleClosedItem = () => {};
 
-  const handleDeleteItem = () => {};
+  const handleDeleteItem = () => {
+    setEntries(entries.filter((el: IBugData) => el.id !== entry.id));
+  };
 
   return (
     <div className="listitem">

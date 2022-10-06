@@ -47,7 +47,9 @@ const List: FC<IListProps> = ({
       />
       <div className="list">
         {entries.map((entry) => {
-          return <ListItem entry={entry} key={entry.id} />;
+          return (
+            <ListItem entry={entry} entries={entries} setEntries={setEntries} />
+          );
         })}
         <div onClick={handleNewEntry} className="listitem create-listitem">
           <h3>
